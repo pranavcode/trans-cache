@@ -26,7 +26,7 @@ def Init(host, port):
     hashname = 'pyapp:httpserobj'
     readerkeyform = 'pyapp:reader'
     writerkeyform = 'pyapp:writer'
-    maxcache = 2000000000
+    maxcache = 10000
     redis_obj = redis.StrictRedis(host=host, port=port, db=0)
     if redis_obj is None:
         print 'Connection with Redis DB cannot be established.'
