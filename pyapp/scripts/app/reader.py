@@ -20,7 +20,7 @@ def ReadCacheObject():
         print logstr
         error = httpbase.Purge(http_id)
         if error:
-            print '\nUnable to purge objects from cache.'
+            print 'Error: Unable to purge objects from cache.\n'
         else:
             http_id = http_id + 1
             if http_id > httpbase.maxcache:

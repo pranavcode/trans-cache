@@ -22,9 +22,10 @@ def WriteCacheObject():
         http_obj = pickle.loads(dummyobj)
         timestamp = int(time.time())
         print str(timestamp)+' '+str(http_id)+' '+str(http_obj.url)
-        http_id = http_id + 1
-        if http_id > httpbase.maxcache:
-            http_id = 0
+    http_id = http_id + 1
+    if http_id > httpbase.maxcache:
+        http_id = 0
+    
 
 if __name__ == "__main__":
     global http_id
