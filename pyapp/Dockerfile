@@ -12,12 +12,14 @@ RUN apt-get -y update && \
 # Install redis client
 RUN pip install redis requests
 
-RUN adduser --system --home /test --shell /bin/bash test
-
 # Mount volumes
-VOLUME /data /app
+VOLUME /data
+VOLUME /app
 
 # Push all scripts into home
 ADD scripts/* /app/
+
+# Test file
+ADD data/* /data/
 
 RUN chmod a+x /app/*

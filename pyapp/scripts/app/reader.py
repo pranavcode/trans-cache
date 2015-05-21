@@ -2,6 +2,7 @@ import httpbase
 import pickle
 import sys
 import string
+import time
 import random
 import requests
 
@@ -12,7 +13,11 @@ def ReadCacheObject():
     data = httpbase.Fetch(http_id)
     if data != None:
         http_obj = pickle.loads(data)
-        print timestamp+' '+http_id+' '+http_obj.url
+        timestamp = int(time.time())
+        logstr = str(timestamp)+' '+str(http_id)+' '+str(http_obj.url)
+        with open("/data/reader.log", "a") as myfile:
+                myfile.write(logstr+'\n')
+        print logstr
         error = httpbase.Purge(http_id)
         if error:
             print '\nUnable to purge objects from cache.'

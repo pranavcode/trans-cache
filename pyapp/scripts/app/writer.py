@@ -21,7 +21,7 @@ def WriteCacheObject():
         httpbase.Store(http_id, dummyobj)
         http_obj = pickle.loads(dummyobj)
         timestamp = int(time.time())
-        print timestamp+' '+http_id+' '+http_obj.url
+        print str(timestamp)+' '+str(http_id)+' '+str(http_obj.url)
         http_id = http_id + 1
         if http_id > httpbase.maxcache:
             http_id = 0
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     error = httpbase.Init('192.168.59.103','6379')
     if error == False:
         while 1:
-            flow = random.randint(0,1000000)
+            flow = random.randint(0,1000)
             for i in range(0, flow):
                 WriteCacheObject()
-            time.sleep(3)
+            time.sleep(5)
