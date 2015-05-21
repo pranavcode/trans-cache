@@ -25,6 +25,10 @@ def ReadCacheObject():
             http_id = http_id + 1
             if http_id > httpbase.maxcache:
                 http_id = 0
+    else:
+        http_id = http_id + 1
+        if http_id > httpbase.maxcache:
+            http_id = 0
 
 if __name__ == "__main__":
     global http_id
